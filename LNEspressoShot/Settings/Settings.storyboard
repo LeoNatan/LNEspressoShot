@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23727"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--General-->
+        <scene sceneID="oor-5E-Rbb">
+            <objects>
+                <viewController title="General" storyboardIdentifier="General" id="rLI-Ot-S4k" customClass="LNGeneralSettingsViewController" sceneMemberID="viewController">
+                    <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="4nm-lH-H0h">
+                        <rect key="frame" x="0.0" y="0.0" width="378" height="56"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="10" horizontalStackHuggingPriority="1000" verticalStackHuggingPriority="250" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZT-IR-No4">
+                                <rect key="frame" x="20" y="20" width="338" height="16"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ze-fs-CxQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="338" height="16"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="e6s-Eo-lJO">
+                                                <rect key="frame" x="-2" y="-1" width="340" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Start at Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XMx-T0-3wz">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <binding destination="WXI-Of-LoJ" name="value" keyPath="values.LNAutomaticallyLaunchKey" id="J4v-aH-gbP">
+                                                        <dictionary key="options">
+                                                            <integer key="NSNoSelectionPlaceholder" value="1"/>
+                                                        </dictionary>
+                                                    </binding>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="aZT-IR-No4" firstAttribute="leading" secondItem="4nm-lH-H0h" secondAttribute="leading" constant="20" id="bUG-DK-F6M"/>
+                            <constraint firstAttribute="trailing" secondItem="aZT-IR-No4" secondAttribute="trailing" constant="20" id="lP1-yZ-KrY"/>
+                            <constraint firstAttribute="bottom" secondItem="aZT-IR-No4" secondAttribute="bottom" constant="20" symbolic="YES" id="mcc-DD-tTS"/>
+                            <constraint firstItem="aZT-IR-No4" firstAttribute="top" secondItem="4nm-lH-H0h" secondAttribute="top" constant="20" symbolic="YES" id="w4W-cp-0r3"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="EoD-kH-IZl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="WXI-Of-LoJ"/>
+            </objects>
+            <point key="canvasLocation" x="194" y="-353"/>
+        </scene>
+    </scenes>
+</document>
