@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "Inactive.png",
       "idiom" : "mac",
       "scale" : "1x"
     },
     {
-      "filename" : "Inactive@2x.png",
+      "filename" : "custom.person.fill.badge.exclamationmark.png",
       "idiom" : "mac",
       "scale" : "2x"
     }

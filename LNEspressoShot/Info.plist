@@ -9,13 +9,13 @@
 		<key>ISGraphicIconConfiguration</key>
 		<dict>
 			<key>ISEnclosureColor</key>
-			<string>white</string>
+			<string>green</string>
 			<key>ISRenderingMode</key>
 			<string>automatic</string>
 			<key>ISSymbolColor</key>
-			<string>brown</string>
+			<string>white</string>
 			<key>ISSymbolName</key>
-			<string>cup.and.heat.waves.fill</string>
+			<string>person.fill</string>
 		</dict>
 	</dict>
 </dict>

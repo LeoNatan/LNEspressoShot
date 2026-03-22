@@ -7,7 +7,10 @@
 
 #import "AppDelegate.h"
 #import "LNSettingsWindowController.h"
+#import "AdminShotHelper.h"
+
 #import <ServiceManagement/ServiceManagement.h>
+#import <Admin_Shot-Swift.h>
 
 @interface NSObject ()
 
@@ -51,13 +54,41 @@ static NSString* const LNAutomaticallyLaunchKey = @"LNAutomaticallyLaunchKey";
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	_statusItem = [NSStatusBar.systemStatusBar statusItemWithLength:NSSquareStatusItemLength];
-	_statusItem.button.action = @selector(_toggle:);
-	_statusItem.button.target = self;
-	[_statusItem.button sendActionOn:NSEventMaskLeftMouseUp | NSEventMaskRightMouseUp];
-	
+	_statusItem.menu = self._menu;
+	[_statusItem.button sendActionOn:NSEventMaskLeftMouseDown | NSEventMaskLeftMouseUp | NSEventMaskRightMouseDown | NSEventMaskRightMouseUp];
+
 	[self _updateStatusItemButtonImage];
 	
 	[_statusItem addObserver:self forKeyPath:@"appearance" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+
+    NSError* err;
+    SMAppService* service = [SMAppService daemonServiceWithPlistName:@"com.LeoNatan.AdminShotHelper.plist"];
+
+    [service unregisterAndReturnError:&err];
+
+    service = [SMAppService daemonServiceWithPlistName:@"com.LeoNatan.AdminShotHelper.plist"];
+
+    int retryCount = 3;
+
+    while(retryCount > 0)
+    {
+        retryCount--;
+
+        __block BOOL rv = [service registerAndReturnError:&err];
+
+        if(rv == NO)
+        {
+            NSLog(@"SMAppService error: %@", err.localizedDescription);
+            [NSRunLoop.currentRunLoop runUntilDate:[NSDate.date dateByAddingTimeInterval:0.5]];
+            continue;
+        }
+
+        [self _scheduleTimer];
+
+        return;
+    }
+
+    [[NSAlert alertWithError:err] runModal];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
@@ -78,7 +109,7 @@ static NSString* const LNAutomaticallyLaunchKey = @"LNAutomaticallyLaunchKey";
 
 - (NSImage*)_imageForCurrentState
 {
-	if(_coffee != nil)
+    if(LNUserCheck.isUserAdmin == YES)
 	{
 		return [NSImage imageNamed:@"enabled"];
 	}
@@ -88,19 +119,9 @@ static NSString* const LNAutomaticallyLaunchKey = @"LNAutomaticallyLaunchKey";
 	}
 }
 
-- (NSImageSymbolConfiguration*)_imageConfigurationForCurrentState
-{
-	if(_coffee != nil)
-	{
-		return [NSImageSymbolConfiguration configurationPreferringMonochrome];
-	}
-	
-	return [NSImageSymbolConfiguration configurationWithHierarchicalColor:NSColor.textColor];
-}
-
 - (void)_updateStatusItemButtonImage
 {
-	_statusItem.button.image = [self._imageForCurrentState imageWithSymbolConfiguration:self._imageConfigurationForCurrentState];
+	_statusItem.button.image = self._imageForCurrentState;
 }
 
 - (NSMenu*)_menu
@@ -109,18 +130,16 @@ static NSString* const LNAutomaticallyLaunchKey = @"LNAutomaticallyLaunchKey";
 	menu.autoenablesItems = NO;
 	menu.delegate = self;
 	
-	NSMenuItem* enabledMenuItem = [menu addItemWithTitle:@"Enable" action:@selector(_toggleFromMenuItem:) keyEquivalent:@""];
-	enabledMenuItem.state = _coffee != nil ? NSControlStateValueOn : NSControlStateValueOff;
-	
-	[menu addItem:NSMenuItem.separatorItem];
-	
 	NSMenuItem* automaticallyLaunchMenuItem = [menu addItemWithTitle:@"Start at Login" action:@selector(_launchAtLogin:) keyEquivalent:@""];
+    automaticallyLaunchMenuItem.image = [NSImage imageWithSystemSymbolName:@"autostartstop" accessibilityDescription:nil];
 	automaticallyLaunchMenuItem.state = [NSUserDefaults.standardUserDefaults boolForKey:LNAutomaticallyLaunchKey] ? NSControlStateValueOn : NSControlStateValueOff;
 	
 	[menu addItem:NSMenuItem.separatorItem];
-	
-	[menu addItemWithTitle:@"Settings…" action:@selector(showSettings:) keyEquivalent:@","].keyEquivalentModifierMask = NSEventModifierFlagCommand;
-	
+
+    NSMenuItem* settings = [menu addItemWithTitle:@"Settings…" action:@selector(showSettings:) keyEquivalent:@","];
+    settings.image = [NSImage imageWithSystemSymbolName:@"gear" accessibilityDescription:nil];
+	settings.keyEquivalentModifierMask = NSEventModifierFlagCommand;
+
 	[menu addItem:NSMenuItem.separatorItem];
 	
 	[menu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@"q"].keyEquivalentModifierMask = NSEventModifierFlagCommand;
@@ -162,55 +181,39 @@ static NSString* const LNAutomaticallyLaunchKey = @"LNAutomaticallyLaunchKey";
 	[self _updateLaunchAtLoginState];
 }
 
-- (void)_toggleLogic
+static NSTimer* _timer;
+- (void)_scheduleTimer
 {
-	if(_coffee)
-	{
-		if(_coffee.isRunning)
-		{
-			[_coffee terminate];
-		}
-		_coffee = nil;
-	}
-	else
-	{
-		_coffee = [NSTask new];
-		_coffee.executableURL = [NSURL fileURLWithPath:@"/usr/bin/caffeinate"];
-		_coffee.arguments = @[
-			@"-d",
-			@"-i",
-			@"-u",
-			@"-s",
-			@"-w",
-			@(getpid()).description
-		];
-		[_coffee launch];
-	}
-	[self _updateStatusItemButtonImage];
+    [_timer invalidate];
+    _timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(_timerTick) userInfo:nil repeats:NO];
+    [NSRunLoop.currentRunLoop addTimer:_timer forMode:NSRunLoopCommonModes];
 }
 
-- (void)_toggleFromMenuItem:(NSMenuItem*)sender
+- (void)_timerTick
 {
-	[self _toggleLogic];
+    [self _logic];
+    [self _scheduleTimer];
 }
 
-- (void)_popMenu
+- (void)_logic
 {
-	_statusItem.menu = self._menu;
-	[_statusItem.button performClick:nil];
-	_statusItem.menu = nil;
-}
+    [self _updateStatusItemButtonImage];
+    if(LNUserCheck.isUserAdmin == NO)
+    {
+        NSXPCConnection* connection = [[NSXPCConnection alloc] initWithMachServiceName:@"com.LeoNatan.AdminShotHelper.xpc" options:NSXPCConnectionPrivileged];
+        connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(AdminShotHelperProtocol)];
+        [connection resume];
 
-- (void)_toggle:(NSButton*)sender
-{
-	if(NSApp.currentEvent.type == NSEventTypeLeftMouseUp)
-	{
-		[self _toggleLogic];
-	}
-	else
-	{
-		[self _popMenu];
-	}
+        id<AdminShotHelperProtocol> proxy = [connection synchronousRemoteObjectProxyWithErrorHandler:^(NSError* error) {
+            NSLog(@"XPC invalidated with error: %@", error);
+        }];
+
+        NSLog(@"Requesting help for user %@", NSUserName());
+
+        [proxy helpWithUser:NSUserName() completionHandler:^{
+            NSLog(@"Helper XPC finished");
+        }];
+    }
 }
 
 @end

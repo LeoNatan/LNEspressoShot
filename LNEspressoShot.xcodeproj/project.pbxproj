@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 73;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,11 +11,23 @@
 		391C79CF286F02BD003C7C26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 391C79CE286F02BD003C7C26 /* Assets.xcassets */; };
 		391C79D4286F02BD003C7C26 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 391C79D3286F02BD003C7C26 /* main.m */; };
 		395095FF29EF41F100779D1D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395095FE29EF41F100779D1D /* MainMenu.xib */; };
+		3964EA802F7000E1004D88F8 /* UserCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964EA7F2F7000E1004D88F8 /* UserCheck.swift */; };
+		3964EAB92F7008DB004D88F8 /* AdminShotHelper in Copy AdminShotHelper Binary */ = {isa = PBXBuildFile; fileRef = 3964EAAF2F70087F004D88F8 /* AdminShotHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		39FD092529EEC4340043F546 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39FD092429EEC4340043F546 /* Settings.storyboard */; };
 		39FD092A29EEC5F90043F546 /* CCNPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD092729EEC5F90043F546 /* CCNPreferencesWindowController.m */; };
 		39FD093729EEFA990043F546 /* LNSettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD093629EEFA990043F546 /* LNSettingsWindowController.m */; };
 		39FD093A29EEFFDE0043F546 /* LNGeneralSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD093929EEFFDE0043F546 /* LNGeneralSettingsViewController.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3964EAB62F70089B004D88F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 391C79BD286F02BC003C7C26 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3964EAAE2F70087F004D88F8;
+			remoteInfo = AdminShotHelper;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		391C79F4286F3F98003C7C26 /* Copy Files */ = {
@@ -26,6 +38,26 @@
 			files = (
 			);
 			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3964EAAD2F70087F004D88F8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		3964EAB82F7008C6004D88F8 /* Copy AdminShotHelper Binary */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				3964EAB92F7008DB004D88F8 /* AdminShotHelper in Copy AdminShotHelper Binary */,
+			);
+			name = "Copy AdminShotHelper Binary";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		39D973202B0FB6AF00E9CB9D /* CopyFiles */ = {
@@ -40,7 +72,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		391C79C5286F02BC003C7C26 /* Espresso Shot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Espresso Shot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		391C79C5286F02BC003C7C26 /* Admin Shot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Admin Shot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		391C79C8286F02BC003C7C26 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		391C79C9286F02BC003C7C26 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		391C79CE286F02BD003C7C26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,6 +80,9 @@
 		391C79D5286F02BD003C7C26 /* LNEspressoShot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LNEspressoShot.entitlements; sourceTree = "<group>"; };
 		391C79DB286F2DD3003C7C26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		395095FE29EF41F100779D1D /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		3964EA7E2F7000E0004D88F8 /* LNEspressoShot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LNEspressoShot-Bridging-Header.h"; sourceTree = "<group>"; };
+		3964EA7F2F7000E1004D88F8 /* UserCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCheck.swift; sourceTree = "<group>"; };
+		3964EAAF2F70087F004D88F8 /* AdminShotHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AdminShotHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		39FD092429EEC4340043F546 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		39FD092729EEC5F90043F546 /* CCNPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNPreferencesWindowController.m; sourceTree = "<group>"; };
 		39FD092829EEC5F90043F546 /* CCNPreferencesWindowControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNPreferencesWindowControllerProtocol.h; sourceTree = "<group>"; };
@@ -58,8 +93,29 @@
 		39FD093929EEFFDE0043F546 /* LNGeneralSettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNGeneralSettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		3964EABD2F700A47004D88F8 /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 39D973202B0FB6AF00E9CB9D /* CopyFiles */;
+			membershipExceptions = (
+				com.LeoNatan.AdminShotHelper.plist,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3964EAB02F70087F004D88F8 /* AdminShotHelper */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (3964EABD2F700A47004D88F8 /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = AdminShotHelper; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		391C79C2286F02BC003C7C26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3964EAAC2F70087F004D88F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -73,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				391C79C7286F02BC003C7C26 /* LNEspressoShot */,
+				3964EAB02F70087F004D88F8 /* AdminShotHelper */,
 				391C79C6286F02BC003C7C26 /* Products */,
 				3992D11A2B14B7CE00513300 /* Frameworks */,
 			);
@@ -81,7 +138,8 @@
 		391C79C6286F02BC003C7C26 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				391C79C5286F02BC003C7C26 /* Espresso Shot.app */,
+				391C79C5286F02BC003C7C26 /* Admin Shot.app */,
+				3964EAAF2F70087F004D88F8 /* AdminShotHelper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +155,8 @@
 				391C79D3286F02BD003C7C26 /* main.m */,
 				391C79D5286F02BD003C7C26 /* LNEspressoShot.entitlements */,
 				395095FE29EF41F100779D1D /* MainMenu.xib */,
+				3964EA7F2F7000E1004D88F8 /* UserCheck.swift */,
+				3964EA7E2F7000E0004D88F8 /* LNEspressoShot-Bridging-Header.h */,
 			);
 			path = LNEspressoShot;
 			sourceTree = "<group>";
@@ -143,15 +203,39 @@
 				391C79C3286F02BC003C7C26 /* Resources */,
 				391C79F4286F3F98003C7C26 /* Copy Files */,
 				39D973202B0FB6AF00E9CB9D /* CopyFiles */,
+				3964EAB82F7008C6004D88F8 /* Copy AdminShotHelper Binary */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3964EAB72F70089B004D88F8 /* PBXTargetDependency */,
+			);
+			name = LNEspressoShot;
+			productName = LNTorrentMover;
+			productReference = 391C79C5286F02BC003C7C26 /* Admin Shot.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3964EAAE2F70087F004D88F8 /* AdminShotHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3964EAB32F70087F004D88F8 /* Build configuration list for PBXNativeTarget "AdminShotHelper" */;
+			buildPhases = (
+				3964EAAB2F70087F004D88F8 /* Sources */,
+				3964EAAC2F70087F004D88F8 /* Frameworks */,
+				3964EAAD2F70087F004D88F8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = LNEspressoShot;
-			productName = LNTorrentMover;
-			productReference = 391C79C5286F02BC003C7C26 /* Espresso Shot.app */;
-			productType = "com.apple.product-type.application";
+			fileSystemSynchronizedGroups = (
+				3964EAB02F70087F004D88F8 /* AdminShotHelper */,
+			);
+			name = AdminShotHelper;
+			packageProductDependencies = (
+			);
+			productName = AdminShotHelper;
+			productReference = 3964EAAF2F70087F004D88F8 /* AdminShotHelper */;
+			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
@@ -164,12 +248,14 @@
 				TargetAttributes = {
 					391C79C4286F02BC003C7C26 = {
 						CreatedOnToolsVersion = 14.0;
-						LastSwiftMigration = 1610;
+						LastSwiftMigration = 2630;
+					};
+					3964EAAE2F70087F004D88F8 = {
+						CreatedOnToolsVersion = 26.3;
 					};
 				};
 			};
 			buildConfigurationList = 391C79C0286F02BC003C7C26 /* Build configuration list for PBXProject "LNEspressoShot" */;
-			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -177,11 +263,13 @@
 				Base,
 			);
 			mainGroup = 391C79BC286F02BC003C7C26;
+			preferredProjectObjectVersion = 60;
 			productRefGroup = 391C79C6286F02BC003C7C26 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				391C79C4286F02BC003C7C26 /* LNEspressoShot */,
+				3964EAAE2F70087F004D88F8 /* AdminShotHelper */,
 			);
 		};
 /* End PBXProject section */
@@ -209,10 +297,26 @@
 				39FD093729EEFA990043F546 /* LNSettingsWindowController.m in Sources */,
 				39FD093A29EEFFDE0043F546 /* LNGeneralSettingsViewController.m in Sources */,
 				39FD092A29EEC5F90043F546 /* CCNPreferencesWindowController.m in Sources */,
+				3964EA802F7000E1004D88F8 /* UserCheck.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3964EAAB2F70087F004D88F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3964EAB72F70089B004D88F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3964EAAE2F70087F004D88F8 /* AdminShotHelper */;
+			targetProxy = 3964EAB62F70089B004D88F8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		391C79D6286F02BD003C7C26 /* Debug */ = {
@@ -347,7 +451,7 @@
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LNEspressoShot/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Espresso Shot";
+				INFOPLIST_KEY_CFBundleDisplayName = "Admin Shot";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -357,9 +461,10 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.4.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.LeoNatan.LNEspressoShot;
-				PRODUCT_NAME = "Espresso Shot";
+				PRODUCT_BUNDLE_IDENTIFIER = com.LeoNatan.LNAdminShot;
+				PRODUCT_NAME = "Admin Shot";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "LNEspressoShot/LNEspressoShot-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -382,7 +487,7 @@
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LNEspressoShot/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Espresso Shot";
+				INFOPLIST_KEY_CFBundleDisplayName = "Admin Shot";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -392,10 +497,36 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.4.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.LeoNatan.LNEspressoShot;
-				PRODUCT_NAME = "Espresso Shot";
+				PRODUCT_BUNDLE_IDENTIFIER = com.LeoNatan.LNAdminShot;
+				PRODUCT_NAME = "Admin Shot";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "LNEspressoShot/LNEspressoShot-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		3964EAB42F70087F004D88F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3964EAB52F70087F004D88F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -416,6 +547,15 @@
 			buildConfigurations = (
 				391C79D9286F02BD003C7C26 /* Debug */,
 				391C79DA286F02BD003C7C26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3964EAB32F70087F004D88F8 /* Build configuration list for PBXNativeTarget "AdminShotHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3964EAB42F70087F004D88F8 /* Debug */,
+				3964EAB52F70087F004D88F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

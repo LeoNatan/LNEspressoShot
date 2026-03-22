@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "Active.png",
       "idiom" : "mac",
       "scale" : "1x"
     },
     {
-      "filename" : "Active@2x.png",
+      "filename" : "custom.person.fill.badge.checkmark.png",
       "idiom" : "mac",
       "scale" : "2x"
     }
